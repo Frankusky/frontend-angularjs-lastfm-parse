@@ -1,20 +1,17 @@
-describe('PasswordController', function() {
-  beforeEach(module('app'));
-
-  var $controller;
-
-  beforeEach(inject(function(_$controller_){
-    // The injector unwraps the underscores (_) from around the parameter names when matching
-    $controller = _$controller_;
+describe("Parse testing", function(){
+  beforeEach(module("authApp"));
+  
+  beforeEach(inject(function(_$httpBackend_, $rootScope, $controller, $filter) {
+    var scope, ctrl, $httpBackend, aorderByFilter;
+      $httpBackend = _$httpBackend_;
+      $httpBackend.expectGET('http://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&api_key=85b8c37b1a6be5182a5ed0549c4a7400&format=json');
+      orderByFilter = $filter('orderBy');
+      scope = $rootScope.$new();
+      ctrl = $controller('jsonData', {$scope: scope});
   }));
-
-  describe('$scope.grade', function() {
-    it('sets the strength to "strong" if the password length is >8 chars', function() {
-      var $scope = {};
-      var controller = $controller('PasswordController', { $scope: $scope });
-      $scope.password = 'longerthaneightchars';
-      $scope.grade();
-      expect($scope.strength).toEqual('strong');
-    });
+  it('should do something', function(){
+      // do something with the sorted array here
+      expect(true).toBe(true);
   });
-});
+  
+})
