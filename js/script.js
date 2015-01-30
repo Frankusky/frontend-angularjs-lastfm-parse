@@ -1,5 +1,5 @@
-// Javascript Code.
-Parse.initialize("YJwHjwYF08scjC2SEdl9Ve2YFB3056FQfkUgGu8p", "awDPDR2YNfZNtbJ54VzEZPiWJZmLekU8qkJxnlOw");
+// Javascript Code. 	
+Parse.initialize("17bWxlwghmf6ipXa8Aezb6RBkVM476ZYmIb2914E", "DyrgpCflF2dh8elInX9Liukus3Ma4Dc1KLTx0L3R");
 
 angular.module('AuthApp', []).run(['$rootScope', function($scope) {
 	$scope.scenario = 'Sign up';
