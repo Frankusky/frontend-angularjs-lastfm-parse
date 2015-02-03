@@ -1,17 +1,11 @@
-describe("Parse testing", function(){
-  beforeEach(module("authApp"));
-  
-  beforeEach(inject(function(_$httpBackend_, $rootScope, $controller, $filter) {
-    var scope, ctrl, $httpBackend, aorderByFilter;
-      $httpBackend = _$httpBackend_;
-      $httpBackend.expectGET('http://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&api_key=85b8c37b1a6be5182a5ed0549c4a7400&format=json');
-      orderByFilter = $filter('orderBy');
-      scope = $rootScope.$new();
-      ctrl = $controller('jsonData', {$scope: scope});
-  }));
-  it('should do something', function(){
-      // do something with the sorted array here
-      expect(true).toBe(true);
-  });
-  
-})
+describe('$scope.grade', function() {
+	it('should return false because pass is too short', function() {
+		expect(passChecker("a")).toBe("Still Weak. Try a longer password...");
+	});
+	it("should return invalid message", function(){
+		expect(passChecker(" asd @ ááé")).toBe("Special characters detected. Try another password...");
+	});
+	it("should return true", function(){
+		expect(passChecker("HOLAmundo123")).toBe(true);
+	});
+});
